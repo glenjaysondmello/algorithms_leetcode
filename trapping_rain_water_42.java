@@ -1,3 +1,5 @@
+import java.util.*;
+
 class trapping_rain_water_42 {
     public static int trap(int[] height) {
         if(height.length == 0) return 0;
