@@ -1,6 +1,6 @@
 import java.util.*;
 
-class Solution {
+class container_with_most_water_11 {
     public static int maxArea(int[] height) {
         int max = 0;
         int left = 0;
