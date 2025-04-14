@@ -12,6 +12,12 @@ class count_good_numbers_1922 {
         while (start <= end) {
             String str_start = String.format("%0" + n + "d", start);
 
+            // String str_start = Integer.toString(start);
+
+            // while (str_start.length() < n) {
+            // str_start = '0' + str_start;
+            // }
+
             if (str_start.charAt(0) % 2 != 0) {
                 start++;
                 continue;
