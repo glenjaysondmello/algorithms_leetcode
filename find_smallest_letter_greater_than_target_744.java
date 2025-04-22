@@ -14,6 +14,12 @@ class find_smallest_letter_greater_than_target_744 {
 
         }
         return letters[start % n];
+
+        // if(start == n) {
+        //     start = 0;
+        // }
+
+        // return letters[start];
     }
 
     public static void main(String args[]) {
