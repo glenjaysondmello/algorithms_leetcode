@@ -1,11 +1,20 @@
 class find_first_and_last_position_of_element_in_sorted_array_34 {
     public static int[] searchRange(int[] nums, int target) {
-        int start, end;
+        int[] res = {-1, -1};
         
-        start = bSearch(nums, target, true);
-        end = bSearch(nums, target, false);
+        res[0] = bSearch(nums, target, true);
+        if(res[0] != -1) {
+            res[1] = bSearch(nums, target, false);
+        }
 
-        return new int[]{start, end};
+        return res;
+        
+        // int start, end;
+        
+        // start = bSearch(nums, target, true);
+        // end = bSearch(nums, target, false);
+
+        // return new int[]{start, end};
     }
 
     static int bSearch(int[] nums, int target, boolean firstIndex) {
