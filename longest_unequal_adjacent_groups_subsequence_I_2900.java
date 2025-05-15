@@ -1,4 +1,4 @@
-class first_and_last_position_of_element_in_sorted_array {
+class longest_unequal_adjacent_groups_subsequence_I_2900 {
     public static List<String> getLongestSubsequence(String[] words, int[] groups) {
         List<String> st = new ArrayList<>();
         int n = groups.length;
