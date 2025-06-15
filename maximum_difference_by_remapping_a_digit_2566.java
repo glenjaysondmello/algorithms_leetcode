@@ -1,3 +1,47 @@
+// (Optimized)
+
+class maximum_difference_by_remapping_a_digit_2566 {
+    public static int minMaxDifference(int num) {
+        String str = Integer.toString(num);
+
+        int max = getMaxNum(str);
+        int min = getMinNum(str);
+
+        return max - min;
+    }
+
+    static int getMaxNum(String str) {
+        for(char ch : str.toCharArray()) {
+            if(ch != '9') {
+                String newStr = str.replace(ch, '9');
+                return Integer.parseInt(newStr);
+            }
+        }
+
+        return Integer.parseInt(str);
+    }
+
+    static int getMinNum(String str) {
+        for(char ch : str.toCharArray()) {
+            if(ch != '0') {
+                String newStr = str.replace(ch, '0');
+                return Integer.parseInt(newStr);
+            }
+        }
+
+        return Integer.parseInt(str);
+    }
+
+    public static void main(String args[]) {
+        int num1 = 11891, num2 = 90;
+
+        System.out.println(minMaxDifference(num1));
+        System.out.println(minMaxDifference(num2));
+    }
+}
+
+// (checks every digits - Not Optimized)
+
 class maximum_difference_by_remapping_a_digit_2566 {
     public static int minMaxDifference(int num) {
         String str = Integer.toString(num);
