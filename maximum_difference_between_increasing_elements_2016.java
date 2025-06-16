@@ -1,3 +1,32 @@
+// (Best approach)
+class maximum_difference_between_increasing_elements_2016 {
+    public static int maximumDifference(int[] nums) {
+        int maxDiff = Integer.MIN_VALUE;
+        int numC = nums[0];
+
+        for(int i = 0; i < nums.length; i++) {
+            if(nums[i] > numC) {
+                maxDiff = Math.max(maxDiff, nums[i] - numC);
+            } else {
+                numC = nums[i];
+            }
+        }
+
+        if(maxDiff == Integer.MIN_VALUE) return -1;
+
+        return maxDiff;
+    }
+
+    public static void main(String args[]) {
+        int[] nums1 = {7, 1, 5, 4}, nums2 = {9, 4, 3, 2}, nums3 = {1, 5, 2, 10};
+
+        System.out.println(maximumDifference(nums1));
+        System.out.println(maximumDifference(nums2));
+        System.out.println(maximumDifference(nums3));
+    }
+}
+
+// (checking the pairs for i = j + 1)
 class maximum_difference_between_increasing_elements_2016 {
     public static int maximumDifference(int[] nums) {
         int maxDiff = Integer.MIN_VALUE;
@@ -28,7 +57,7 @@ class maximum_difference_between_increasing_elements_2016 {
     }
 }
 
-// (This is also a correct solution, made for fun)
+// (not recommended)
 class Solution {
     public int maximumDifference(int[] nums) {
         int maxDiff = Integer.MIN_VALUE;
