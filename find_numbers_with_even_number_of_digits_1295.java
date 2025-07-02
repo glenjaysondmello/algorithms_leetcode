@@ -34,6 +34,10 @@ class find_numbers_with_even_number_of_digits_1295 {
     }
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> repo-b-temp
 // Example 1:
 
 // Input: nums = [12,345,2,6,7896]
@@ -52,4 +56,7 @@ class find_numbers_with_even_number_of_digits_1295 {
 // Output: 1 
 // Explanation: 
 // Only 1771 contains an even number of digits.
+<<<<<<< HEAD
  
+=======
+>>>>>>> repo-b-temp
