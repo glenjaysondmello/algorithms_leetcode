@@ -45,3 +45,31 @@ public class Solution {
 // Output: false
 // Explanation: There is no cycle in the linked list.
 
+
+// (For cycle length)
+
+// public class Solution {
+//     public int hasCycle(ListNode head) {
+//         ListNode fast = head;
+//         ListNode slow = head;
+//         int length = 0;
+
+//         while(fast != null && fast.next != null) {
+//             slow = slow.next;
+//             fast = fast.next.next;
+            
+//             if(fast == slow) {
+//                 ListNode temp = slow;
+            
+//                 do {
+//                     temp = temp.next;
+//                     length++;
+//                 } while(temp != slow);
+
+//                 return length;
+//             }
+//         }
+//         return length;
+//     }
+// }
+
