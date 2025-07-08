@@ -9,7 +9,7 @@
  * }
  */
 
-class Solution {
+class merge_two_sorted_list_21 {
     public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
         ListNode dHead = new ListNode();
         ListNode node = dHead;
