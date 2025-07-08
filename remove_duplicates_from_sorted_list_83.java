@@ -9,7 +9,7 @@
  * }
  */
 
-class Solution {
+class remove_duplicates_from_sorted_list_83 {
     public ListNode deleteDuplicates(ListNode head) {
         ListNode node = head;
 
