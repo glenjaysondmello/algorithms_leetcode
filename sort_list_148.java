@@ -9,6 +9,8 @@
  * }
  */
 
+// (using Merge sort)
+
 class sort_list_148 {
     public ListNode sortList(ListNode head) {
         if(head == null || head.next == null) return head;
@@ -71,6 +73,73 @@ class sort_list_148 {
 }
 
 
+// (Bubble Sort) not recommended
+
+class Solution {
+    public ListNode sortList(ListNode head) {
+        if (head == null || head.next == null) return head;
+        
+        int size = getSize(head);
+        int row = size - 1;
+        int col = 0;
+
+        return bubbleSort(head, row, col);
+    }
+
+    static ListNode bubbleSort(ListNode head, int row, int col) {
+        if(row == 0) return head;
+
+        ListNode first = getNode(col, head);
+        ListNode second = getNode(col + 1, head);
+
+        if(row > col) {
+            if(first.val > second.val) {
+                if(first == head) {
+                    head = second;
+                    first.next = second.next;
+                    second.next = first;
+                } else {
+                    ListNode prev = getNode(col - 1, head);
+                    prev.next = second;
+                    first.next = second.next;
+                    second.next = first;
+                }
+            }
+
+            return bubbleSort(head, row, col + 1);
+        } else {
+            return bubbleSort(head, row - 1, 0);
+        }
+    }
+
+    static int getSize(ListNode head) {
+        ListNode temp = head;
+        int length = 0;
+
+        while(temp != null) {
+            temp = temp.next;
+            length++;
+        }
+
+        return length;
+    }
+
+    static ListNode getNode(int index, ListNode head) {
+        ListNode node = head;
+
+        for(int i = 0; i < index; i++) {
+            if(node == null) return null;
+            
+            node = node.next;
+        }
+
+        return node;
+    }
+}
+
+
+
+
 // Example 1:
 
 // Input: head = [4,2,1,3]
@@ -85,4 +154,5 @@ class sort_list_148 {
 
 // Input: head = []
 // Output: []
+
 
