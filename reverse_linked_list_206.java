@@ -9,6 +9,8 @@
  * }
  */
 
+// ( Iterative approach )
+
 class reverse_linked_list_206 {
     public ListNode reverseList(ListNode head) {
         if(head == null) return head;
@@ -26,6 +28,34 @@ class reverse_linked_list_206 {
         }
 
         return prev;
+    }
+}
+
+// ( Recursive approach )
+
+class reverse_linked_list_206 {
+    public ListNode reverseList(ListNode head) {
+        if(head == null) return head;
+        
+        ListNode temp = head;
+
+        return reverse(null, head, head.next);
+    }
+
+    static ListNode reverse(ListNode prev, ListNode pres, ListNode next) {
+        if(pres == null) {
+            return prev;
+        }
+
+        pres.next = prev;
+        prev = pres;
+        pres = next;
+
+        if(next != null) {
+            next = next.next;
+        }
+
+        return reverse(prev, pres, next);
     }
 }
 
