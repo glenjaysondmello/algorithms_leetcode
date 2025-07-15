@@ -1,4 +1,4 @@
-// (Normal character checking approach)
+// (Normal character checking approach) Recommended
 class valid_word_3136 {
     public boolean isValid(String word) {
         if(word.length() < 3) return false;
@@ -23,6 +23,21 @@ class valid_word_3136 {
         if (c == 'a' || c =='e' || c =='i' || c == 'o' || c == 'u') return true;
 
         return false;
+    }
+}
+
+// (Regex)
+class valid_word_3136 {
+    public boolean isValid(String word) {
+        if(word.length() < 3) return false;
+
+        if(!word.matches("^[a-zA-Z0-9]+$")) return false;
+
+        if(!word.matches("(?i).*[aeiou].*")) return false;
+
+        if(!word.matches("(?i).*[b-df-hj-np-tv-z].*")) return false;
+
+        return true;
     }
 }
 
