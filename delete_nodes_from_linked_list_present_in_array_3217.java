@@ -10,7 +10,7 @@
  */
 
 // Approach 1: Uses a HashSet for O(1) lookup to efficiently remove nodes whose values exist in the given array.
-class Solution {
+class delete_nodes_from_linked_list_present_in_array_3217 {
     public ListNode modifiedList(int[] nums, ListNode head) {
         HashSet<Integer> set = new HashSet<>();
 
@@ -40,7 +40,7 @@ class Solution {
 }
 
 // Approach 2: Uses a linear search (O(n) lookup) in the array for each node, resulting in less efficiency than the HashSet approach. (Time Complexity Exceeds)
-class Solution {
+class delete_nodes_from_linked_list_present_in_array_3217 {
     public ListNode modifiedList(int[] nums, ListNode head) {
         ListNode prev = null;
 
