@@ -23,10 +23,10 @@ class maximum_average_subarray_i_643 {
         double windowSum = 0;
         int windowStart = 0;
 
-        for(int i = 0; i < nums.length; i++) {
-            windowSum += nums[i];
+        for(int winEnd = 0; winEnd < nums.length; winEnd++) {
+            windowSum += nums[winEnd];
 
-            if(i >= k - 1) {
+            if(winEnd >= k - 1) {
                 double avg = windowSum / k;
                 maxAvg = Math.max(maxAvg, avg);
 

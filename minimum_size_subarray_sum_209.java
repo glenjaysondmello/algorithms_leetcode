@@ -6,11 +6,11 @@ class minimum_size_subarray_sum_209 {
         int winStart = 0;
         int n = nums.length;
 
-        for(int i = 0; i < n; i++) {
-            winSum += nums[i];
+        for(int winEnd = 0; winEnd < n; winEnd++) {
+            winSum += nums[winEnd];
 
             while(winSum >= target) {
-                minLen = Math.min(minLen, i - winStart + 1);
+                minLen = Math.min(minLen, winEnd - winStart + 1);
                 winSum -= nums[winStart];
                 winStart++;
             }
