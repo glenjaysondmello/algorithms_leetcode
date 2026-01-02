@@ -1,3 +1,48 @@
+// Uses a sliding window while tracking the most frequent character to ensure at most k replacements are needed, maximizing the length of a repeating-character substring.
+class longest_repeating_character_replacement_424 {
+    public int characterReplacement(String s, int k) {
+        int n = s.length();
+        int winStart = 0;
+        int maxRepeated = Integer.MIN_VALUE;
+        int maxLen = Integer.MIN_VALUE;
+
+        HashMap<Character, Integer> map = new HashMap<>();
+
+        for(int winEnd = 0; winEnd < n; winEnd++) {
+            char ch = s.charAt(winEnd);
+            map.put(ch, map.getOrDefault(ch, 0) + 1);
+
+            maxRepeated = Math.max(maxRepeated, map.get(ch));
+
+            if((winEnd - winStart + 1 - maxRepeated) > k) {
+                char curr = s.charAt(winStart);
+                map.put(curr, map.get(curr) - 1);
+
+                if(map.get(curr) == 0) map.remove(curr);
+
+                winStart++;
+            }
+
+            maxLen = Math.max(maxLen, winEnd - winStart + 1);
+        }
+
+        return maxLen;
+    }
+}
+
+// Example 1:
+// Input: s = "ABAB", k = 2
+// Output: 4
+// Explanation: Replace the two 'A's with two 'B's or vice versa.
+
+// Example 2:
+// Input: s = "AABABBA", k = 1
+// Output: 4
+// Explanation: Replace the one 'A' in the middle with 'B' and form "AABBBBA".
+// The substring "BBBB" has the longest repeating letters, which is 4.
+// There may exists other ways to achieve this answer too.
+
+
 import java.util.*;
 
 class longest_repeating_character_replacement_424 {
