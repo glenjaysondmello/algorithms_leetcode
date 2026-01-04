@@ -9,16 +9,16 @@ class longest_repeating_character_replacement_424 {
         HashMap<Character, Integer> map = new HashMap<>();
 
         for(int winEnd = 0; winEnd < n; winEnd++) {
-            char ch = s.charAt(winEnd);
-            map.put(ch, map.getOrDefault(ch, 0) + 1);
+            char endChar = s.charAt(winEnd);
+            map.put(endChar, map.getOrDefault(endChar, 0) + 1);
 
             maxRepeated = Math.max(maxRepeated, map.get(ch));
 
             if((winEnd - winStart + 1 - maxRepeated) > k) {
-                char curr = s.charAt(winStart);
-                map.put(curr, map.get(curr) - 1);
+                char startChar = s.charAt(winStart);
+                map.put(startChar, map.get(startChar) - 1);
 
-                if(map.get(curr) == 0) map.remove(curr);
+                if(map.get(startChar) == 0) map.remove(startChar);
 
                 winStart++;
             }

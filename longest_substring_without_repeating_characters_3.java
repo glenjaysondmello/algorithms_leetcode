@@ -10,15 +10,15 @@ class longest_substring_without_repeating_characters_3 {
         HashSet<Character> set = new HashSet<>();
 
         for(int winEnd = 0; winEnd < n; winEnd++) {
-            char ch = s.charAt(winEnd);
+            char endChar = s.charAt(winEnd);
 
-            while(set.contains(ch)) {
-                char curr = s.charAt(winStart);
-                set.remove(curr);
+            while(set.contains(endChar)) {
+                char startChar = s.charAt(winStart);
+                set.remove(startChar);
                 winStart++;
             }
-
-            set.add(ch);
+            
+            set.add(endChar);
             maxLen = Math.max(maxLen, set.size());
         }
 
@@ -38,14 +38,14 @@ class longest_substring_without_repeating_characters_3 {
         HashMap<Character, Integer> map = new HashMap<>();
 
         for(int winEnd = 0; winEnd < n; winEnd++) {
-            char ch = s.charAt(winEnd);
-            map.put(ch, map.getOrDefault(ch, 0) + 1);
+            char endChar = s.charAt(winEnd);
+            map.put(endChar, map.getOrDefault(endChar, 0) + 1);
 
-            while(map.get(ch) > 1) {
-                char curr = s.charAt(winStart);
-                map.put(curr, map.get(curr) - 1);
+            while(map.get(endChar) > 1) {
+                char startChar = s.charAt(winStart);
+                map.put(startChar, map.get(startChar) - 1);
                 
-                if(map.get(curr) == 0) map.remove(curr);
+                if(map.get(startChar) == 0) map.remove(startChar);
 
                 winStart++;
             }

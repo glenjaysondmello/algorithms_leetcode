@@ -8,14 +8,14 @@ class fruit_into_baskets_904 {
         HashMap<Integer, Integer> map = new HashMap<>();
 
         for(int winEnd = 0; winEnd < n; winEnd++) {
-            int fruit = fruits[winEnd];
-            map.put(fruit, map.getOrDefault(fruit, 0) + 1);
+            int endFruit = fruits[winEnd];
+            map.put(endFruit, map.getOrDefault(endFruit, 0) + 1);
 
             while(map.size() > 2) {
-                int curr = fruits[winStart];
-                map.put(curr, map.get(curr) - 1);
+                int startFruit = fruits[winStart];
+                map.put(startFruit, map.get(startFruit) - 1);
 
-                if(map.get(curr) == 0) map.remove(curr);
+                if(map.get(startFruit) == 0) map.remove(startFruit);
 
                 winStart++;
             }
