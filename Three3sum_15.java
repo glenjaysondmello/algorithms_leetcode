@@ -1,5 +1,5 @@
 // Sort + two-pointer approach: fix one element and find pairs summing to zero while skipping duplicates in O(n²) time.
-class 3sum_15 {
+class Three3sum_15 {
     public List<List<Integer>> threeSum(int[] nums) {
         int n = nums.length;
 
